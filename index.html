@@ -11,8 +11,18 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>HTML Forms</title>
     <style>
-        .form-select{
-            margin-top:32px;
+        .form-select {
+            margin-top: 44px;
+        }
+
+        .form-label,
+        .col-6>.form-check-label {
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .form-select {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='black' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E")
         }
     </style>
 </head>
@@ -20,31 +30,37 @@
 <body>
     <div class="container-fluid mt-2">
         <form>
-            <div class="card">
-                <div class="card-header">
+            <div class="card mb-2">
+                <div class="card-header rounded-top">
                     <h5>Payment Form Example</h5>
                 </div>
+
                 <div class="card-body">
                     <div class="row">
-                        <div class='col'><div class="alert alert-danger" role="alert">
-                            Some fields are missing!
-                          </div></div>
+                        <div class='col'>
+                            <div class="alert alert-danger fw-bold" role="alert">
+                                Some fields are missing!
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-5">
                             <label for="cardNum" class="form-label">Card #</label>
                             <input type="number" class="form-control" id="cardNum" placeholder="XXXXXXXXXXXXXXXX"
-                                maxlength="16" minlength="16">
+                                min='1000000000000000' max="9999999999999999">
                         </div>
                         <div class="col-3">
                             <label for="cardCVC" class="form-label">CVC #</label>
-                            <input type="number" class="form-control" id="cardCVC" placeholder="XXXX" maxlength="4"
-                                minlength="4">
+                            <input type="number" class="form-control" id="cardCVC" placeholder="XXXX" max="9999"
+                                min="1000">
                         </div>
-                        <div class="col-4">
-                            <label for="cardAmount" class="col-form-label"></label>
-                            <label for="cardAmount" class="form-label">Amount</label>
-                            <input type="number" class="form-control" id="cardAmount" placeholder="Amount">
+                        
+                        <div class="col-4 d-flex">
+                            <div class="mt-5 fw-bold">$</div>
+                            <div class="form-group w-100">
+                                <label for="cardAmount" class="form-label">Amount</label>
+                                <input type="number" class="form-control" id="cardAmount" placeholder="Amount">
+                            </div>
                         </div>
                     </div>
 
@@ -58,6 +74,7 @@
                             <input type="text" class="form-control" id="lastname">
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-6">
                             <label for="city" class="form-label">Last Name</label>
@@ -81,8 +98,9 @@
                             <label class="form-check-label" for="payselect">We accept:</label>
                             <br>
                             <div class="bg-secondary text-white d-inline-block p-2 mt-2 rounded" id="payselect">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="payment" id="mastercard" value="MasterCard">
+                                <div class="form-check form-check-inline ms-2">
+                                    <input class="form-check-input" type="radio" name="payment" id="mastercard"
+                                        value="MasterCard">
                                     <label class="form-check-label" for="mastercard"><i
                                             class="fa-brands fa-cc-mastercard"></i></label>
                                 </div>
@@ -93,12 +111,14 @@
                                 </div>
 
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="payment" id="diners" value="Diners">
+                                    <input class="form-check-input" type="radio" name="payment" id="diners"
+                                        value="Diners">
                                     <label class="form-check-label" for="diners"><i
                                             class="fa-brands fa-cc-diners-club"></i></label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="payment" id="american" value="American">
+                                    <input class="form-check-input" type="radio" name="payment" id="american"
+                                        value="American">
                                     <label class="form-check-label" for="american"><i
                                             class="fa-brands fa-cc-paypal"></i></label>
                                 </div>
@@ -110,17 +130,18 @@
                             <p class="fs-6 text-muted">Add any notes here.</p>
                         </div>
                     </div>
-
+                </div>
+                <div class="card-footer w-100 border rounded-bottom">
+                    <div class="d-flex justify-content-end mt-1">
+                        <button type="submit" class="btn btn-secondary ">Cancel</button>
+                        <button type="submit" class="btn btn-primary ms-2">Send</button>
+                    </div>
                 </div>
 
             </div>
-            <div class="card-footer float-end">
-                <button type="submit" class="btn btn-secondary mb-3">Cancel</button>
-                <button type="submit" class="btn btn-primary mb-3">Send</button>
-            </div>
+        </form>  
     </div>
-    </form>
-    </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
